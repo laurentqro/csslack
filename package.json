@@ -1,0 +1,9 @@
+{
+  "name": "csslack",
+  "version": "1.0.0",
+  "description": "A clone of Slack with CSS",
+  "main": "index.js",
+  "repository": "https://github.com/laurentqro/csslack",
+  "author": "Laurent Curau",
+  "license": "MIT"
+}
