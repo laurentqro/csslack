@@ -1,0 +1,61 @@
+html {
+    box-sizing: border-box;
+    font-weight: normal;
+    color: #272727;
+    text-shadow: 0 2px 0 rgba(0, 0, 0, 0.07);
+  }
+  
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+  
+  body {
+    margin: 0;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: normal;
+    margin: 0;
+    font-size: 1.5em;
+  }
+
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 50px 1fr;
+    grid-template-columns: 60px 180px 1fr;
+    grid-template-areas:
+        "workspaces sidebar navbar   navbar"
+        "workspaces sidebar messages messages"
+}
+
+.workspaces {
+    display: grid;
+    grid-area: workspaces;
+}
+
+.workspace {
+}
+
+.sidebar {
+    display: grid;
+    grid-area: sidebar;
+}
+
+.navbar {
+    display: grid;
+    grid-area: navbar;
+}
+
+.messages {
+    display: grid;
+    grid-area: messages;
+}
