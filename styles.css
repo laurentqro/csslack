@@ -1,18 +1,17 @@
 :root {
-    --black: #1a0f28;
-    --purple: #574155;
+    --black: #271D26;
+    --purple: #4D394B;
     --red: rgb(205, 44, 44);
     --light-grey: rgb(225, 216, 216);
-    --grey: rgb(97, 97, 97);
-    --sidebar-grey: rgb(201, 192, 192);
+    --grey:#878889;
+    --sidebar-grey: #CAC4C9;
     --green: rgb(45, 136, 101);
 }
 
 html {
     box-sizing: border-box;
     font-weight: normal;
-    color: #272727;
-    text-shadow: 0 2px 0 rgba(0, 0, 0, 0.07);
+    color: #2E2F32;
   }
   
   *,
@@ -42,7 +41,7 @@ html {
     width: 100vw;
     height: 100vh;
     display: grid;
-    grid-template-rows: 50px 1fr;
+    grid-template-rows: 60px 1fr;
     grid-template-columns: 80px 220px 1fr;
     grid-template-areas:
         "workspaces sidebar navbar   navbar"
@@ -97,10 +96,6 @@ html {
     grid-template-rows: 25px 15px;
 }
 
-.sidebar__channel-name {
-    color: white;
-}
-
 .sidebar__workspace-name {
     color: white;
     font-size: 19px;
@@ -142,9 +137,54 @@ html {
     border-bottom: 1px solid var(--light-grey);
     display: grid;
     grid-area: navbar;
+    grid-template-areas:
+        "channel-name  search"
+        "channel-links search";
+    grid-template-rows: 25px 25px;
+    grid-template-columns: 600px 1fr;
+    padding: 10px;
+}
+
+.navbar__channel-name {
+    color: black;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.navbar__search {
+    align-content: center;
+    color: var(--grey);
+    display: grid;
+    grid-area: search;
+    grid-template-columns: 25px 25px 25px 1fr 25px 25px 25px;
+}
+
+.navbar__search-input {
+    padding: 0 10px;
+}
+
+.navbar__search input {
+    width: 100%;
+}
+
+.navbar-search__icon {
+    font-size: 12px;
+}
+
+.navbar_links {
+    color: var(--grey);
+    font-size: 13px;
+}
+
+.vertical-separator {
+    margin: 0 5px;
 }
 
 .messages {
     display: grid;
     grid-area: messages;
+}
+
+.message {
+    padding: 20px;
 }
