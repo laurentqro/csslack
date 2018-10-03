@@ -1,19 +1,48 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+class Message extends React.Component {
+  render() {
+    let imgSrc = `./images/${this.props.sender.toLowerCase()}.png`;
+
+    return (
+      <div className="message">
+        <div className="message__profile">
+          <img className="message__profile-picture" src={imgSrc} alt="{this.props.sender}" />
+        </div>
+
+        <div className="message__message">
+          <div>
+            <span className="message__user-name">{this.props.sender}</span>
+            <span className="message__timestamp">{this.props.timestamp}</span>
+          </div>
+
+          <div className="message__body">
+            {this.props.body}
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
 
 class App extends Component {
   render() {
+    let messages = [
+      { body: "hello", sender: "Laurent", timestamp: "9:54" },
+      { body: "Bye", sender: "Justyna", timestamp: "9:55" }
+    ];
+
     return (
-      <div class="wrapper">
-        <div class="workspaces">
-          <div class="workspace">
-            <img src="./images/8th-light-logo.png" class="workspace__image" />
-            <div class="workspace__number">
-                ⌘1
+        <div class="wrapper">
+          <div class="workspaces">
+            <div class="workspace">
+              <img src="./images/8th-light-logo.png" class="workspace__image" />
+              <div class="workspace__number">
+                  ⌘1
+              </div>
             </div>
           </div>
-        </div>
         
           <div class="navbar">
             <div class="navbar__channel-name">
@@ -67,21 +96,7 @@ class App extends Component {
           </div>
 
           <div class="messages">
-            <div class="message">
-              <div class="message__profile">
-                <img class="message__profile-picture" src="./images/laurent.png" alt="laurent" />
-              </div>
-
-              <div class="message__message">
-                <div>
-                  <span class="message__user-name">Laurent</span>
-                  <span class="message__timestamp">9:54</span>
-                </div>
-
-                <div class="message__body">
-                </div>
-              </div>
-            </div>
+            { messages.map((message, i) => <Message body={message.body} sender={message.sender} timestamp={message.timestamp} />) }
           </div>
 
           <div class="new-message">
