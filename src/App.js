@@ -27,17 +27,28 @@ class Message extends React.Component {
 }
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      workspace: { name: "8th Light", image: "8th-light-logo.png"},
+      channel: { name: "randomonium", tagLine: "100% nonsense. all. the. time. Oh yeah." },
+      channels: ["randomonium", "tings"],
+      messages:
+      [
+        { body: "hello", sender: "Laurent", timestamp: "9:54" },
+        { body: "Bye", sender: "Justyna", timestamp: "9:55" }
+      ]
+    }
+  }
   render() {
-    let messages = [
-      { body: "hello", sender: "Laurent", timestamp: "9:54" },
-      { body: "Bye", sender: "Justyna", timestamp: "9:55" }
-    ];
+    let imgSrc = `./images/${this.state.workspace.image}`;
 
     return (
         <div class="wrapper">
           <div class="workspaces">
             <div class="workspace">
-              <img src="./images/8th-light-logo.png" class="workspace__image" />
+              <img src={imgSrc} class="workspace__image" />
               <div class="workspace__number">
                   ⌘1
               </div>
@@ -46,7 +57,7 @@ class App extends Component {
         
           <div class="navbar">
             <div class="navbar__channel-name">
-              #randomonium
+              #{this.state.channel.name}
             </div>
 
             <div class="navbar__search">
@@ -68,7 +79,7 @@ class App extends Component {
               <span class="vertical-separator">|</span>
               <i class="navbar-search__icon fas fa-thumbtack"></i> 5
               <span class="vertical-separator">|</span>
-              100% nonsense. all. the. time. Oh yeah.
+              {this.state.channel.tagLine}
             </div>
           </div>
 
@@ -89,14 +100,13 @@ class App extends Component {
               <header class="sidebar__header">
                 Channels
               </header>
-              <div class="sidebar__channel">
-                # randomonium
-              </div>
+
+              { this.state.channels.map((channel, i) => <div class="sidebar__channel"># {channel}</div>) }
             </div>
           </div>
 
           <div class="messages">
-            { messages.map((message, i) => <Message body={message.body} sender={message.sender} timestamp={message.timestamp} />) }
+            { this.state.messages.map((message, i) => <Message body={message.body} sender={message.sender} timestamp={message.timestamp} />) }
           </div>
 
           <div class="new-message">
