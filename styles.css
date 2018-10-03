@@ -6,7 +6,7 @@
     --grey:#878889;
     --sidebar-grey: #CAC4C9;
     --dark-grey: rgb(66, 65, 65);
-    --green: rgb(45, 136, 101);
+    --green: #39958C;
 }
 
 html {
@@ -42,7 +42,7 @@ html {
     width: 100vw;
     height: 100vh;
     display: grid;
-    grid-template-rows: 60px 1fr;
+    grid-template-rows: 80px 1fr;
     grid-template-columns: 80px 220px 1fr;
     grid-template-areas:
         "workspaces sidebar navbar   navbar"
@@ -144,7 +144,7 @@ html {
         "channel-links search";
     grid-template-rows: 25px 25px;
     grid-template-columns: 600px 1fr;
-    padding: 10px;
+    padding: 20px;
 }
 
 .navbar__channel-name {
